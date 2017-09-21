@@ -5,13 +5,8 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <com.cpxiao.blackandwhite.views.GameView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
-
-    <include layout="@layout/layout_ads"/>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

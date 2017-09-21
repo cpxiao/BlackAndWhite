@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Black And White</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="quit_msg">Quit the Game ?</string>
 </resources>
