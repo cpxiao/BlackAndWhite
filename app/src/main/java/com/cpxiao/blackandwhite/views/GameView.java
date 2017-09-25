@@ -129,9 +129,13 @@ public class GameView extends BaseSurfaceViewFPS {
             Log.d(TAG, "timingLogic: mSpriteQueue.size() = " + mSpriteQueue.size());
         }
 
+        if (mOnGameListener != null && !isGameOver) {
+            mOnGameListener.onScoreChange((int) mScore);
+        }
+
         if (checkGameOver()) {
             if (mOnGameListener != null && !isGameOver) {
-                mOnGameListener.onGameOver((int) mScore, (int) mBestScore);
+                mOnGameListener.onGameOver((int) mScore);
             }
             isGameOver = true;
         }

@@ -5,5 +5,7 @@ package com.cpxiao.blackandwhite;
  */
 
 public interface OnGameListener {
-    void onGameOver(int score , int bestScore);
+    void onScoreChange(int score);
+
+    void onGameOver(int score);
 }

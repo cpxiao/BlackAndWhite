@@ -34,11 +34,17 @@ public class GameFragment extends BaseFragment {
         mGameView = (GameView) view.findViewById(R.id.game_view);
         mGameView.setOnGameListener(new OnGameListener() {
             @Override
-            public void onGameOver(final int score, final int bestScore) {
+            public void onScoreChange(int score) {
+                Context context = getHoldingActivity();
+                updateBestScore(context, score);
+            }
+
+            @Override
+            public void onGameOver(final int score) {
                 ThreadUtils.getInstance().runOnMainThread(new Runnable() {
                     @Override
                     public void run() {
-                        showDialog(getHoldingActivity(), score, bestScore);
+                        showDialog(getHoldingActivity(), score);
                     }
                 });
 
@@ -51,13 +57,24 @@ public class GameFragment extends BaseFragment {
         return R.layout.fragment_game;
     }
 
-    private void showDialog(Context context, int score, int bestScore) {
+    private int getBestScore(Context context) {
+        return PreferencesUtils.getInt(context, Extra.Key.BEST_SCORE, 0);
+    }
+
+    private void updateBestScore(Context context, int score) {
+        int bestScore = getBestScore(context);
         if (score > bestScore) {
             bestScore = score;
             PreferencesUtils.putInt(context, Extra.Key.BEST_SCORE, bestScore);
         }
-        String msg = getString(R.string.score) + ": " + score + "\n" +
-                getString(R.string.best_score) + ": " + bestScore;
+    }
+
+    private void showDialog(Context context, int score) {
+        int bestScore = getBestScore(context);
+        updateBestScore(context, score);
+
+        String msg = getString(R.string.score) + ": " + score + "\n"
+                + getString(R.string.best_score) + ": " + bestScore;
         AlertDialog dialog = new AlertDialog.Builder(context)
                 .setTitle(R.string.game_over)
                 .setMessage(msg)
