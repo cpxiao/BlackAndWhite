@@ -12,4 +12,7 @@ public final class ColorExtra {
 
     public static final String colorPlayerLeft = colorRight;
     public static final String colorPlayerRight = colorLeft;
+
+    public static final String colorEnemyLeft = colorCenterLeft;
+    public static final String colorEnemyRight = colorCenterRight;
 }

@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:background="#f3ecc6"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="100dp">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="@string/app_name"
+        android:textSize="32sp"/>
 
-    </FrameLayout>
+    <Button
+        android:id="@+id/play"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/play"/>
 
-    <include layout="@layout/layout_ads"/>
+    <Button
+        android:id="@+id/best_score"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/best_score"/>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/settings"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"/>
+
+    <Button
+        android:id="@+id/quit"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quit"/>
+
+</LinearLayout>

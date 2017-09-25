@@ -21,6 +21,14 @@ public class Player extends Sprite {
         this.mDeltaSpeed = build.deltaSpeed;
     }
 
+    public boolean isTouchLeft() {
+        return getX() - 0.1F <= getMovingRangeRectF().left;
+    }
+
+    public boolean isTouchRight() {
+        return getX() + getWidth() + 0.1F >= getMovingRangeRectF().right;
+    }
+
     @Override
     protected void beforeDraw(Canvas canvas, Paint paint) {
         super.beforeDraw(canvas, paint);
@@ -37,6 +45,7 @@ public class Player extends Sprite {
         canvas.drawCircle(getCenterX(), getCenterY(), 0.315F * getWidth(), paint);
     }
 
+
     public static class Build extends Sprite.Build {
 
         private int color;
@@ -47,7 +56,7 @@ public class Player extends Sprite {
             return this;
         }
 
-        public Build setDeltaSpeed(float deltaSpeed) {
+        public Build setDeltaSpeedX(float deltaSpeed) {
             this.deltaSpeed = deltaSpeed;
             return this;
         }

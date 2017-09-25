@@ -2,7 +2,7 @@ package com.cpxiao.blackandwhite.activity;
 
 import android.os.Bundle;
 
-import com.cpxiao.blackandwhite.fragment.GameFragment;
+import com.cpxiao.blackandwhite.fragment.HomeFragment;
 import com.cpxiao.gamelib.activity.BaseZAdsActivity;
 import com.cpxiao.gamelib.fragment.BaseFragment;
 import com.cpxiao.zads.ZAdManager;
@@ -11,8 +11,8 @@ public class MainActivity extends BaseZAdsActivity {
 
     @Override
     protected BaseFragment getFirstFragment() {
-//        return HomeFragment.newInstance(null);
-        return GameFragment.newInstance(null);
+        //        return HomeFragment.newInstance(null);
+        return HomeFragment.newInstance(null);
     }
 
     @Override
@@ -23,9 +23,9 @@ public class MainActivity extends BaseZAdsActivity {
     }
 
     private void loadAds() {
-//        initAdMobAds100("");
-//        initFbAds90("");
-//        loadZAds(ZAdPosition.POSITION_MAIN);
+        //        initAdMobAds100("");
+        //        initFbAds90("");
+        //        loadZAds(ZAdPosition.POSITION_MAIN);
     }
 
     @Override

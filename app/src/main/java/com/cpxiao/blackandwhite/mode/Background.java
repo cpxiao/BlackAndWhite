@@ -13,6 +13,8 @@ import com.cpxiao.gamelib.mode.common.Sprite;
 
 public class Background extends Sprite {
 
+    public static final float centerPercent = 0.035F;
+
     protected Background(Build build) {
         super(build);
     }
@@ -28,7 +30,7 @@ public class Background extends Sprite {
         paint.setColor(Color.parseColor(ColorExtra.colorRight));
         canvas.drawRect(w, 0, 2 * w, h, paint);
 
-        float smallRectFW = 0.035F * getWidth();
+        float smallRectFW = centerPercent * getWidth();
         paint.setColor(Color.parseColor(ColorExtra.colorCenterLeft));
         canvas.drawRect(w - smallRectFW, 0, w, h, paint);
 
