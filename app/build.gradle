@@ -9,6 +9,7 @@ android {
         targetSdkVersion 25
         versionCode 104
         versionName "1.0.4"
+        flavorDimensions "channel"
     }
 
     buildTypes {
@@ -33,35 +34,46 @@ android {
 //    }
 
     //修改生成的apk名字
-    applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            def oldFile = output.outputFile
-            def packageName = applicationId;
-            if (variant.buildType.name.equals('release')) {
-                def releaseApkName = packageName +
-                        "_v" + defaultConfig.versionName +
-                        "_" + variant.productFlavors[0].name +
-                        "_" + new Date().format('yyyyMMddHHmm') +
-                        '.apk'
-                output.outputFile = new File(oldFile.parent, releaseApkName)
-            }
-            if (variant.buildType.name.equals('beta')) {
-                def baseApkName = packageName +
-                        "_v" + defaultConfig.versionName + "beta" +
-                        "_" + variant.productFlavors[0].name +
-                        "_" + new Date().format('yyyyMMddHHmm') +
-                        '.apk'
-                output.outputFile = new File(oldFile.parent, baseApkName)
-            }
-            if (variant.buildType.name.equals('debug')) {
-
-            }
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def oldFile = output.outputFile
+//            def packageName = applicationId;
+//            if (variant.buildType.name.equals('release')) {
+//                def releaseApkName = packageName +
+//                        "_v" + defaultConfig.versionName +
+//                        "_" + variant.productFlavors[0].name +
+//                        "_" + new Date().format('yyyyMMddHHmm') +
+//                        '.apk'
+//                output.outputFile = new File(oldFile.parent, releaseApkName)
+//            }
+//            if (variant.buildType.name.equals('beta')) {
+//                def baseApkName = packageName +
+//                        "_v" + defaultConfig.versionName + "beta" +
+//                        "_" + variant.productFlavors[0].name +
+//                        "_" + new Date().format('yyyyMMddHHmm') +
+//                        '.apk'
+//                output.outputFile = new File(oldFile.parent, baseApkName)
+//            }
+//            if (variant.buildType.name.equals('debug')) {
+//
+//            }
+//        }
+//    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = applicationId +
+                    "_v" + defaultConfig.versionName +
+                    "_" + variant.productFlavors[0].name +
+                    "_" + new Date().format('yyyyMMddHHmm') +
+                    '.apk'
         }
     }
+
+
 }
 
 dependencies {
-    compile project(':AndroidUtils:library')
+    compile project(':__AndroidUtils:library')
     compile 'com.android.support:appcompat-v7:25.3.1'
 
     /**
